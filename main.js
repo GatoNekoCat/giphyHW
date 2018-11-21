@@ -14,11 +14,12 @@ $(document).ready(function() {
         $("gif-here-please").empty();
         $("btn-this").empty();
 
-        topics.forEach(function (t, i) {
+        topics.forEach(function (t) {
         
         var bttn = $("<button>");
-        $(bttn).attr("type", "button")
-        $(bttn).addClass("btn btn-dark")
+        $(bttn).attr("type", "button");
+        $(bttn).attr("id", "topic-button");
+        $(bttn).addClass("btn btn-dark");
         $(bttn).text(t);
         $("#btn-this").append(bttn);
     });
@@ -31,17 +32,29 @@ $(document).ready(function() {
         method: "GET"
       }).then(function(response) {
 
-        var divItem = $("<div class='carousel-item active'>");
-        var divImage = $("<img class='d-block w-100'>");
-        // var
-        $(divImage).attr('src', )
-        $(divItem).append(divImage);
-        $("#gif-here-please").append(divItem);
+        var rData = response.data;
+        $(rData).each(function(i, e) {
+            var imgSrc = e.images.fixed_width_small.url;
+            var imgWidth = e.images.fixed_width_small.width;
+            var imgHeight = e.images.fixed_width_small.height;
+            var divItem = $("<div class='carousel-item active'>");
+            var divImage = $("<img class='d-block'>");
+            $(divImage).attr('src', imgSrc );
+            $(divImage).css('width', imgWidth );
+            $(divImage).css('height', imgHeight );
+            $(divItem).append(divImage);
+            $("#gif-here-please").append(divItem);
+
+
+
+        });
+        console.log(rData);
 
 
 
 
-        console.log(response);
+
+        // console.log(response);
         
 
     
@@ -58,9 +71,15 @@ $("#find-character").on("click", function(event) {
 
     // render the gifs
     $("#btn-this").empty();
+    $("#character-input").val("");
     displayGifs();
   });
+  $("#topic-button").on("click", function(event) {
+      console.log(event);
+      console.log("hit");
+  })
   displayGifs();
+
 
 
 
