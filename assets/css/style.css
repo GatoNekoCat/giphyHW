@@ -1,0 +1,35 @@
+
+body {
+    background-color: #fff;
+  }
+  
+  button,
+  div,
+  form,
+  input {
+        margin: 10px;
+  }
+  
+  button {
+    background-color: green;
+    border: solid black 2px;
+    border-radius: 3px;
+    color: white;
+  }
+  
+  p {
+       font-weight: bold;
+       font-size: 14px;
+       line-height: .5;
+   }
+  
+   .container {
+    /* background-image: url(../lmages/background.jpeg); */
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100%;
+   }
+  
+  .topicDiv {
+      float: left;
+  }

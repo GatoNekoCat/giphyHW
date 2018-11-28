@@ -24,6 +24,7 @@ $(document).ready(function() {
         $("#btn-this").append(bttn);
     });
         
+        // topics added to topic array
         var topic = $(this).attr("data-name");
         var giphyAPIURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=LBKqXQtATMKe7aEl5Safxnj4nlHX6uI6";
 
@@ -60,6 +61,7 @@ $(document).ready(function() {
     
     });
 };
+
 
 $("#find-character").on("click", function(event) {
     event.preventDefault();
